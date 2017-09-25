@@ -1,39 +1,30 @@
 
+function createElement(tag, props, ...children) {
+	var elem = document.createElement(tag);
+
+	Object.keys(props).forEach (key => elem[key] = props[key]);
+
+	if (children.length > 0) {
+		children.forEach (child => {
+			if (typeof(child) === 'string') {
+				child = document.createTextNode(child);
+			}
+			elem.appendChild(child);
+		});
+	}
+	return elem;
+}
+
 function createItem(title) {
-	var checkbox = document.createElement('input');
-	checkbox.type = 'checkbox';
-	checkbox.className = 'listItem__checkbox';
-
-	var label = document.createElement('label');
-	label.innerText = title;
-	label.className = 'listItem__title'
-	
-	var editInput = document.createElement('input');
-	editInput.type = 'text';
-	editInput.className = 'textfield';
-
-	var editBtn = document.createElement('button');
-	editBtn.innerText = 'Edit';
-	editBtn.className = 'listItem__edit';
-
-	var delBtn = document.createElement('button');
-	delBtn.innerText = 'Delete';
-	delBtn.className = 'listItem__delete';
-
-	var listItem = document.createElement('li');
-	listItem.className = 'listItem';
-
-	listItem.appendChild(checkbox);
-	listItem.appendChild(label);
-	listItem.appendChild(editInput);
-	listItem.appendChild(editBtn);
-	listItem.appendChild(delBtn);
+	var checkbox = createElement('input', { type: 'checkbox', className: 'listItem__checkbox' });//document.createElement('input');
+	var label = createElement('label', { className: 'listItem__title' }, title);
+	var editInput = createElement('input', { type: 'text', className: 'textfield' });
+	var editBtn = createElement('button', { className: 'listItem__edit' }, 'Edit');
+	var delBtn = createElement('button', { className: 'listItem__delete' }, 'Delete');
+	var listItem = createElement('li', { className: 'listItem' }, checkbox, label, editInput, editBtn, delBtn);
 	
 	todoList.appendChild(listItem);
-	console.log(listItem);
-
 	ft_events(listItem);
-	
 	return listItem;
 }
 
