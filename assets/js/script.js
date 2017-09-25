@@ -1,6 +1,4 @@
 
-
-
 function createItem(title) {
 	var checkbox = document.createElement('input');
 	checkbox.type = 'checkbox';
@@ -83,7 +81,6 @@ function editTodoItem(event) {
 		this.innerText = 'Save';
 	}
 	listItem.classList.toggle('editing');
-
 }
 
 function deleteTodoItem(event) {
