@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ToDo</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+	<section class="todo">
+		<header class="todo__head">
+			<h1>To Do List</h1>
+		</header>
+		<ul id="todo__list">
+			<li class="listItem">
+				<input class="listItem__checkbox" type="checkbox">
+				<label class="listItem__title">Learn JS</label>
+				<input type="text" class="textfield">
+				<button class="listItem__edit">Edit</button>
+				<button class="listItem__delete">Delete</button>
+			</li>
+		</ul>
+
+		<form id="todo__form">
+			<input id="form__addInput" type="text" placeholder="Enter task">
+			<button id="form__addButton" type="submit">Add Note</button>
+		</form>
+	</section>
+	<script src="assets/js/script.js"></script>
+</body>
+</html>
